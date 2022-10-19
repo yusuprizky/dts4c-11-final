@@ -1,5 +1,14 @@
+import { Typography } from "@mui/material";
+import Paper from "@mui/material/Paper";
+
 const HotTopic = () => {
-  return <>Hot Topic</>;
+  return (
+    <>
+      <Paper elevation={2} variant="outlined">
+        <Typography>Tes</Typography>
+      </Paper>
+    </>
+  );
 };
 
 export default HotTopic;
