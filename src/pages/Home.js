@@ -7,7 +7,7 @@ const Home = () => {
     <>
       <Grid container spacing={2}>
         <Grid item xs={8}>
-          tes
+          <HotTopic />
         </Grid>
         <Grid item xs={4}>
           ss

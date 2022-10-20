@@ -1,4 +1,5 @@
 import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import { useState } from "react";
@@ -9,6 +10,8 @@ import Stack from "@mui/material/Stack";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
+import IconButton from "@mui/material/IconButton";
+import DarkModeIcon from "@mui/icons-material/DarkMode";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -22,6 +25,9 @@ const Search = styled("div")(({ theme }) => ({
   [theme.breakpoints.up("sm")]: {
     marginLeft: theme.spacing(1),
     width: "auto",
+  },
+  ".MuiInputBase-root": {
+    width: "100%",
   },
 }));
 
@@ -65,7 +71,14 @@ const Header = () => {
         <Stack spacing={1}>
           <Grid container spacing={0}>
             <Grid item lg={1}>
-              Google Berita
+              <Typography
+                variant="p"
+                noWrap
+                component="div"
+                sx={{ flexGrow: 1, alignSelf: "flex-end" }}
+              >
+                REA4C Berita
+              </Typography>
             </Grid>
             <Grid item lg={10} align="center">
               <Box
@@ -87,14 +100,23 @@ const Header = () => {
               </Box>
             </Grid>
             <Grid item lg={1}>
-              Logo
+              <IconButton
+                size="large"
+                aria-label="display more actions"
+                edge="end"
+                color="inherit"
+              >
+                <DarkModeIcon />
+              </IconButton>
             </Grid>
           </Grid>
           <Tabs value={value} onChange={handleChange} centered>
-            <Tab label="Teknologi" />
-            <Tab label="Olahraga" />
-            <Tab label="Sains" />
-            <Tab label="Kesehatan" />
+            <Tab disableRipple label="Indonesia" />
+            <Tab disableRipple label="Bisnis" />
+            <Tab disableRipple label="Teknologi" />
+            <Tab disableRipple label="Olahraga" />
+            <Tab disableRipple label="Sains" />
+            <Tab disableRipple label="Kesehatan" />
           </Tabs>
         </Stack>
       </AppBar>
