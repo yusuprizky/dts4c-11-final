@@ -7,14 +7,12 @@ const Home = () => {
     <>
       <Grid container spacing={2}>
         <Grid item xs={8}>
-          <HotTopic />
+          tes
         </Grid>
         <Grid item xs={4}>
           ss
         </Grid>
       </Grid>
-      Ini Home
-      <LatestNews />
     </>
   );
 };
