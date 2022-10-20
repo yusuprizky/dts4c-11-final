@@ -1,5 +1,5 @@
 import { AppBar, Toolbar, Typography, Grid } from "@mui/material/";
-import { Info, Instagram, Security, Twitter } from "@mui/icons-material";
+import { Facebook, Info, Instagram, Security, Twitter } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 
 export default function Footer() {
@@ -17,8 +17,9 @@ export default function Footer() {
           </Typography>
           <Typography variant="p" noWrap component="div" sx={{ flexGrow: 1, alignSelf: "center", display: "flex", justifyContent: "end" }}>
             <Typography variant="caption">
-              <Instagram />
-              <Twitter />
+              <Facebook sx={{ marginRight: "5px", cursor: "pointer" }} />
+              <Instagram sx={{ marginRight: "5px", cursor: "pointer" }} />
+              <Twitter sx={{ marginRight: "5px", cursor: "pointer" }} />
             </Typography>
           </Typography>
         </Toolbar>
