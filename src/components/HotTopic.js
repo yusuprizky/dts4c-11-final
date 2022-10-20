@@ -2,38 +2,24 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getNews } from "../features/newsSlice";
 
-import {
-  Button,
-  Card,
-  CardActions,
-  CardContent,
-  CardMedia,
-  Container,
-  Typography,
-} from "@mui/material";
-// import Paper from "@mui/material/Paper";
+import { Button, Card, CardActions, CardContent, CardMedia, Container, Typography } from "@mui/material";
 
 const HotTopic = () => {
   const dispatch = useDispatch();
-  const { entities, loading } = useSelector((state) => state.news);
+  const { entities } = useSelector((state) => state.news);
   // console.log(entities);
 
   useEffect(() => {
     dispatch(getNews("technology"));
-  }, []);
+  }, [dispatch]);
 
   return (
     <>
       {entities.articles?.map((data, i) => {
         return (
           <Container>
-            <Card sx={{ maxWidth: 345 }} key={i}>
-              <CardMedia
-                component="img"
-                alt=""
-                height="140"
-                image={data.urlToImage}
-              />
+            <Card sx={{ maxWidth: 600 }} key={i}>
+              <CardMedia component="img" alt="" height="140" image={data.urlToImage} />
               <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
                   {data.title}

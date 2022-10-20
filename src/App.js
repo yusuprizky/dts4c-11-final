@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Container from "@mui/material/Container";
 import Home from "./pages/Home";
 import NewsDetail from "./pages/NewsDetail";
@@ -8,6 +8,7 @@ import LatestNewsPage from "./pages/LatestNewsPage";
 import Header from "./components/Header";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
+import Footer from "./components/Footer";
 
 const darkTheme = createTheme({
   palette: {
@@ -28,6 +29,7 @@ const App = () => {
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Container>
+        <Footer />
       </ThemeProvider>
     </div>
   );
