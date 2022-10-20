@@ -55,9 +55,11 @@ const Header = () => {
   return (
     <>
       <AppBar
+        elevation={0}
         position="static"
-        color="secondary"
+        color="default"
         sx={{ padding: "15px 15px 0px 15px" }}
+        enableColorOnDark
       >
         {/* <Toolbar component="nav"> */}
         <Stack spacing={1}>
