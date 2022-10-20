@@ -6,8 +6,10 @@ const initialState = {
   loading: false,
 };
 
-export const getNews = createAsyncThunk("news/getNews", async () => {
-  const response = await axios.get(`https://newsapi.org/v2/everything?q=technology&pageSize=10&apiKey=${process.env.REACT_APP_APIKEY}`);
+export const getNews = createAsyncThunk("news/getNews", async (category) => {
+  const response = await axios.get(
+    `https://newsapi.org/v2/top-headlines?country=id&category=${category}&apiKey=${process.env.REACT_APP_APIKEY}`
+  );
   return response.data;
   // console.log(response.data);
 });

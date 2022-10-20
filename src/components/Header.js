@@ -1,5 +1,7 @@
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
+import { useSelector, useDispatch } from "react-redux";
+import { getNews } from "../features/newsSlice";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import { useState } from "react";
@@ -52,9 +54,11 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 const Header = () => {
+  const dispatch = useDispatch();
   const [value, setValue] = useState(0);
 
   const handleChange = (event, value) => {
+    dispatch(getNews(value));
     setValue(value);
   };
 
@@ -111,12 +115,11 @@ const Header = () => {
             </Grid>
           </Grid>
           <Tabs value={value} onChange={handleChange} centered>
-            <Tab disableRipple label="Indonesia" />
-            <Tab disableRipple label="Bisnis" />
-            <Tab disableRipple label="Teknologi" />
-            <Tab disableRipple label="Olahraga" />
-            <Tab disableRipple label="Sains" />
-            <Tab disableRipple label="Kesehatan" />
+            <Tab disableRipple value="business" label="Bisnis" />
+            <Tab disableRipple value="technology" label="Teknologi" />
+            <Tab disableRipple value="sports" label="Olahraga" />
+            <Tab disableRipple value="science" label="Sains" />
+            <Tab disableRipple value="health" label="Kesehatan" />
           </Tabs>
         </Stack>
       </AppBar>
