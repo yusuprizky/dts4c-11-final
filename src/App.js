@@ -26,8 +26,6 @@ const App = () => {
             <Route path="/" element={<Home />} />
             <Route path="news/:id" element={<NewsDetail />} />
             <Route path="*" element={<NotFound />} />
-            <Route path="hottopics/:id" element={<HotTopicsPage />} />
-            <Route path="latestnews/:id" element={<LatestNewsPage />} />
           </Routes>
         </Container>
       </ThemeProvider>
