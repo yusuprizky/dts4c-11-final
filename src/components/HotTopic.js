@@ -2,15 +2,7 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getNews } from "../features/newsSlice";
 
-import {
-  Button,
-  Card,
-  CardActions,
-  CardContent,
-  CardMedia,
-  Container,
-  Typography,
-} from "@mui/material";
+import { Button, Card, CardActions, CardContent, CardMedia, Container, Typography } from "@mui/material";
 
 const HotTopic = () => {
   const dispatch = useDispatch();
@@ -18,7 +10,7 @@ const HotTopic = () => {
   // console.log(entities);
 
   useEffect(() => {
-    dispatch(getNews("technology"));
+    dispatch(getNews(""));
   }, [dispatch]);
 
   return (
@@ -26,12 +18,7 @@ const HotTopic = () => {
       {entities.articles?.map((data, i) => {
         return (
           <Card key={i}>
-            <CardMedia
-              component="img"
-              alt=""
-              height="140"
-              image={data.urlToImage}
-            />
+            <CardMedia component="img" alt="" height="140" image={data.urlToImage} />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
                 {data.title}

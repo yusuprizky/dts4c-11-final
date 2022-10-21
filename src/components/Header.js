@@ -64,23 +64,12 @@ const Header = () => {
 
   return (
     <>
-      <AppBar
-        elevation={0}
-        position="sticky"
-        color="default"
-        sx={{ padding: "10px 30px 0px 30px" }}
-        enableColorOnDark
-      >
+      <AppBar elevation={0} position="sticky" color="default" sx={{ padding: "10px 30px 0px 30px" }} enableColorOnDark>
         {/* <Toolbar component="nav"> */}
         <Stack spacing={1}>
           <Grid container spacing={0}>
             <Grid item lg={2}>
-              <Typography
-                variant="h5"
-                noWrap
-                component="div"
-                sx={{ flexGrow: 1, alignSelf: "flex-end" }}
-              >
+              <Typography variant="h5" noWrap component="div" sx={{ flexGrow: 1, alignSelf: "flex-end" }}>
                 REA4C Berita
               </Typography>
             </Grid>
@@ -96,21 +85,13 @@ const Header = () => {
                   <SearchIconWrapper>
                     <SearchIcon />
                   </SearchIconWrapper>
-                  <StyledInputBase
-                    placeholder="Telusuri topik, lokasi & sumber"
-                    inputProps={{ "aria-label": "search" }}
-                  />
+                  <StyledInputBase placeholder="Telusuri topik, lokasi & sumber" inputProps={{ "aria-label": "search" }} />
                 </Search>
               </Box>
             </Grid>
             <Grid item lg={2}>
               <Box display="flex" justifyContent="flex-end">
-                <IconButton
-                  size="large"
-                  aria-label="display more actions"
-                  edge="end"
-                  color="inherit"
-                >
+                <IconButton size="large" aria-label="display more actions" edge="end" color="inherit">
                   <DarkModeIcon />
                 </IconButton>
               </Box>

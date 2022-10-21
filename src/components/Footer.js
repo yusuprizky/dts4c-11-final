@@ -1,29 +1,13 @@
 import { AppBar, Toolbar, Typography, Grid } from "@mui/material/";
-import {
-  Facebook,
-  Info,
-  Instagram,
-  Security,
-  Twitter,
-} from "@mui/icons-material";
+import { Facebook, Instagram, Twitter } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
-    <footer style={{ marginTop: "5rem" }}>
-      <AppBar
-        position="static"
-        elevation={0}
-        component="footer"
-        color="default"
-      >
+    <footer style={{ marginTop: "5rem", backgroundColor: "#121212" }}>
+      <AppBar position="static" elevation={0} component="footer" color="default">
         <Toolbar style={{ justifyContent: "center" }}>
-          <Typography
-            variant="p"
-            noWrap
-            component="div"
-            sx={{ flexGrow: 1, alignSelf: "center" }}
-          >
+          <Typography variant="p" noWrap component="div" sx={{ flexGrow: 1, alignSelf: "center" }}>
             <Link to="/" style={{ textDecoration: "none", color: "#fff" }}>
               REA4C Berita
             </Link>
