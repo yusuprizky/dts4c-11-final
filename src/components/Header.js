@@ -55,7 +55,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 const Header = () => {
   const dispatch = useDispatch();
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState("general");
 
   const handleChange = (event, value) => {
     dispatch(getNews(value));
@@ -66,17 +66,17 @@ const Header = () => {
     <>
       <AppBar
         elevation={0}
-        position="static"
+        position="sticky"
         color="default"
-        sx={{ padding: "15px 15px 0px 15px" }}
+        sx={{ padding: "10px 30px 0px 30px" }}
         enableColorOnDark
       >
         {/* <Toolbar component="nav"> */}
         <Stack spacing={1}>
           <Grid container spacing={0}>
-            <Grid item lg={1}>
+            <Grid item lg={2}>
               <Typography
-                variant="p"
+                variant="h5"
                 noWrap
                 component="div"
                 sx={{ flexGrow: 1, alignSelf: "flex-end" }}
@@ -84,7 +84,7 @@ const Header = () => {
                 REA4C Berita
               </Typography>
             </Grid>
-            <Grid item lg={10} align="center">
+            <Grid item lg={8} align="center">
               <Box
                 sx={{
                   width: "70%",
@@ -103,18 +103,21 @@ const Header = () => {
                 </Search>
               </Box>
             </Grid>
-            <Grid item lg={1}>
-              <IconButton
-                size="large"
-                aria-label="display more actions"
-                edge="end"
-                color="inherit"
-              >
-                <DarkModeIcon />
-              </IconButton>
+            <Grid item lg={2}>
+              <Box display="flex" justifyContent="flex-end">
+                <IconButton
+                  size="large"
+                  aria-label="display more actions"
+                  edge="end"
+                  color="inherit"
+                >
+                  <DarkModeIcon />
+                </IconButton>
+              </Box>
             </Grid>
           </Grid>
           <Tabs value={value} onChange={handleChange} centered>
+            <Tab disableRipple value="general" label="Indonesia" />
             <Tab disableRipple value="business" label="Bisnis" />
             <Tab disableRipple value="technology" label="Teknologi" />
             <Tab disableRipple value="sports" label="Olahraga" />
