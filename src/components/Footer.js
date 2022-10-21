@@ -4,58 +4,57 @@ import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
-    <Paper
-      sx={{
-        marginTop: "calc(10% + 60px)",
-        width: "100%",
-        position: "fixed",
-        bottom: 0,
-      }}
-      component="footer"
-      square
-    >
-      <Toolbar style={{ justifyContent: "center" }}>
-        <Typography
-          variant="p"
-          noWrap
-          component="div"
-          sx={{ flexGrow: 1, alignSelf: "center" }}
-        >
-          <Link to="/" style={{ textDecoration: "none", color: "#fff" }}>
-            REA4C Berita
-          </Link>
-        </Typography>
-        <Typography
-          variant="p"
-          noWrap
-          component="div"
-          sx={{
-            flexGrow: 1,
-            alignSelf: "center",
-            display: "flex",
-            justifyContent: "center",
-          }}
-        >
-          <Typography variant="caption">©2022</Typography>
-        </Typography>
-        <Typography
-          variant="p"
-          noWrap
-          component="div"
-          sx={{
-            flexGrow: 1,
-            alignSelf: "center",
-            display: "flex",
-            justifyContent: "end",
-          }}
-        >
-          <Typography variant="caption">
-            <Facebook sx={{ marginRight: "5px", cursor: "pointer" }} />
-            <Instagram sx={{ marginRight: "5px", cursor: "pointer" }} />
-            <Twitter sx={{ marginRight: "5px", cursor: "pointer" }} />
+    <footer style={{ marginTop: "5rem" }}>
+      <AppBar
+        position="static"
+        elevation={0}
+        component="footer"
+        color="default"
+        enableColorOnDark
+      >
+        <Toolbar style={{ justifyContent: "center" }}>
+          <Typography
+            variant="p"
+            noWrap
+            component="div"
+            sx={{ flexGrow: 1, alignSelf: "center" }}
+          >
+            <Link to="/" style={{ textDecoration: "none", color: "#fff" }}>
+              REA4C Berita
+            </Link>
           </Typography>
-        </Typography>
-      </Toolbar>
-    </Paper>
+          <Typography
+            variant="p"
+            noWrap
+            component="div"
+            sx={{
+              flexGrow: 1,
+              alignSelf: "center",
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            <Typography variant="caption">©2022</Typography>
+          </Typography>
+          <Typography
+            variant="p"
+            noWrap
+            component="div"
+            sx={{
+              flexGrow: 1,
+              alignSelf: "center",
+              display: "flex",
+              justifyContent: "end",
+            }}
+          >
+            <Typography variant="caption">
+              <Facebook sx={{ marginRight: "5px", cursor: "pointer" }} />
+              <Instagram sx={{ marginRight: "5px", cursor: "pointer" }} />
+              <Twitter sx={{ marginRight: "5px", cursor: "pointer" }} />
+            </Typography>
+          </Typography>
+        </Toolbar>
+      </AppBar>
+    </footer>
   );
 }
