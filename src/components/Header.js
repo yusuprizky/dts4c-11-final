@@ -14,6 +14,7 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import IconButton from "@mui/material/IconButton";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
+import { CardMedia, Container } from "@mui/material";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
