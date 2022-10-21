@@ -1,7 +1,7 @@
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { useSelector, useDispatch } from "react-redux";
-import { getNews } from "../features/newsSlice";
+import { getNews, setCategory } from "../features/newsSlice";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import { useState } from "react";
@@ -59,6 +59,7 @@ const Header = () => {
 
   const handleChange = (event, value) => {
     dispatch(getNews(value));
+    dispatch(setCategory(event.target.textContent));
     setValue(value);
   };
 

@@ -4,6 +4,7 @@ import axios from "axios";
 const initialState = {
   entities: [],
   loading: false,
+  category: "Indonesia",
 };
 
 export const getNews = createAsyncThunk("news/getNews", async (category) => {
@@ -11,12 +12,16 @@ export const getNews = createAsyncThunk("news/getNews", async (category) => {
     `https://newsapi.org/v2/top-headlines?country=id&category=${category}&apiKey=${process.env.REACT_APP_APIKEY}`
   );
   return response.data;
-  // console.log(response.data);
 });
 
 const newsSlice = createSlice({
   name: "news",
   initialState,
+  reducers: {
+    setCategory: (state, action) => {
+      state.category = action.payload; // mutate the state all you want with immer
+    },
+  },
   extraReducers: {
     [getNews.pending]: (state) => {
       state.loading = true;
@@ -33,3 +38,4 @@ const newsSlice = createSlice({
 
 // export const newsSelectors = newsEntity.getSelectors((state) => state.news);
 export const newsReducer = newsSlice.reducer;
+export const { setCategory } = newsSlice.actions;

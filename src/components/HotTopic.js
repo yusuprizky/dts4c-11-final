@@ -6,7 +6,7 @@ import { Button, Card, CardActions, CardContent, CardMedia, Container, Typograph
 
 const HotTopic = () => {
   const dispatch = useDispatch();
-  const { entities } = useSelector((state) => state.news);
+  const { entities, category } = useSelector((state) => state.news);
   // console.log(entities);
 
   useEffect(() => {
@@ -15,6 +15,9 @@ const HotTopic = () => {
 
   return (
     <>
+      <Typography variant="h4" sx={{ marginBottom: "2rem" }}>
+        {category}
+      </Typography>
       {entities.articles?.map((data, i) => {
         return (
           <Card key={i}>
