@@ -14,7 +14,6 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import IconButton from "@mui/material/IconButton";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
-import { CardMedia, Container } from "@mui/material";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -71,7 +70,7 @@ const Header = () => {
         <Stack spacing={1}>
           <Grid container spacing={0}>
             <Grid item lg={2}>
-              <Typography variant="h5" noWrap component="div" sx={{ flexGrow: 1, alignSelf: "flex-end" }}>
+              <Typography variant="h5" noWrap component="div" sx={{ fontFamily: "Roboto", flexGrow: 1, alignSelf: "flex-end" }}>
                 REA4C Berita
               </Typography>
             </Grid>

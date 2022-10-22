@@ -4,7 +4,7 @@ import { getNews } from "../features/newsSlice";
 
 import { Button, Card, CardActions, CardContent, CardMedia, Typography } from "@mui/material";
 
-const HotTopic = () => {
+const NewsList = () => {
   const dispatch = useDispatch();
   const { entities, category } = useSelector((state) => state.news);
   // console.log(entities);
@@ -15,7 +15,7 @@ const HotTopic = () => {
 
   return (
     <>
-      <Typography variant="h4" sx={{ marginBottom: "2rem" }}>
+      <Typography variant="h4" sx={{ fontFamily: "Roboto", margin: "1rem 0" }}>
         {category}
       </Typography>
       {entities.articles?.map((data, i) => {
@@ -31,7 +31,7 @@ const HotTopic = () => {
               </Typography>
             </CardContent>
             <CardActions>
-              <Button href={data.url} size="small">
+              <Button href={data.url} target="_blank" size="small">
                 Read More
               </Button>
             </CardActions>
@@ -42,4 +42,4 @@ const HotTopic = () => {
   );
 };
 
-export default HotTopic;
+export default NewsList;

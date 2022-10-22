@@ -34,6 +34,5 @@ const newsSlice = createSlice({
   },
 });
 
-// export const newsSelectors = newsEntity.getSelectors((state) => state.news);
 export const newsReducer = newsSlice.reducer;
 export const { setCategory } = newsSlice.actions;
