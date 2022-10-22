@@ -1,4 +1,4 @@
-import HotTopic from "../components/HotTopic";
+import NewsList from "../components/NewsList";
 import Grid from "@mui/material/Grid";
 
 const Home = () => {
@@ -6,7 +6,7 @@ const Home = () => {
     <>
       <Grid container spacing={2} sx={{ marginTop: "5rem" }}>
         <Grid item xs={12} md={12}>
-          <HotTopic />
+          <NewsList />
         </Grid>
       </Grid>
     </>
