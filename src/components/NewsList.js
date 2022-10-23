@@ -21,7 +21,7 @@ const NewsList = () => {
       {entities.articles?.map((data, i) => {
         return (
           <Card key={i} sx={{ marginBottom: 5 }}>
-            <CardMedia component="img" alt="" height="140" image={data.urlToImage} />
+            <CardMedia component="img" height="200" image={data.urlToImage} sx={{ objectFit: "none" }} />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
                 {data.title}
