@@ -14,6 +14,7 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import IconButton from "@mui/material/IconButton";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -63,6 +64,17 @@ const Header = () => {
     setValue(value);
   };
 
+  const navigate = useNavigate();
+  const handleRedirect = (e) => {
+    e.preventDefault();
+    const name = e.target.name;
+    if (name === "home") {
+      navigate("/");
+    } else {
+      navigate(`/${name}`);
+    }
+  };
+
   return (
     <>
       <AppBar elevation={0} position="sticky" color="default" sx={{ padding: "10px 30px 0px 30px" }} enableColorOnDark>
@@ -99,12 +111,12 @@ const Header = () => {
             </Grid>
           </Grid>
           <Tabs value={value} onChange={handleChange} centered>
-            <Tab disableRipple value="general" label="Indonesia" />
-            <Tab disableRipple value="business" label="Bisnis" />
-            <Tab disableRipple value="technology" label="Teknologi" />
-            <Tab disableRipple value="sports" label="Olahraga" />
-            <Tab disableRipple value="science" label="Sains" />
-            <Tab disableRipple value="health" label="Kesehatan" />
+            <Tab disableRipple value="general" label="Indonesia" name="home" onClick={handleRedirect} />
+            <Tab disableRipple value="business" label="Bisnis" name="bisnis" onClick={handleRedirect} />
+            <Tab disableRipple value="technology" label="Teknologi" name="teknologi" onClick={handleRedirect} />
+            <Tab disableRipple value="sports" label="Olahraga" name="olahraga" onClick={handleRedirect} />
+            <Tab disableRipple value="science" label="Sains" name="sains" onClick={handleRedirect} />
+            <Tab disableRipple value="health" label="Kesehatan" name="kesehatan" onClick={handleRedirect} />
           </Tabs>
         </Stack>
       </AppBar>

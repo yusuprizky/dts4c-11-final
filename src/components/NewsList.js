@@ -15,7 +15,7 @@ const NewsList = () => {
 
   return (
     <>
-      <Typography variant="h4" sx={{ fontFamily: "Roboto", margin: "1rem 0" }}>
+      <Typography variant="h4" sx={{ fontFamily: "Roboto", marginBottom: "1rem" }}>
         {category}
       </Typography>
       {entities.articles?.map((data, i) => {
