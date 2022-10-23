@@ -64,11 +64,7 @@ const Header = () => {
     dispatch(getNews(value));
     dispatch(setCategory(e.target.textContent));
     setValue(value);
-    if (e.target.textContent === "Indonesia") {
-      navigate("/");
-    } else {
-      navigate(`/${value}`);
-    }
+    value === "general" ? navigate("/") : navigate(`/${value}`);
   };
 
   return (
