@@ -9,6 +9,7 @@ const initialState = {
 
 export const getNews = createAsyncThunk("news/getNews", async (category) => {
   const response = await axios.get(`https://newsapi.org/v2/top-headlines?country=id&category=${category}&apiKey=${process.env.REACT_APP_APIKEY}`);
+  console.log(category);
   return response.data;
 });
 

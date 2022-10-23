@@ -1,4 +1,4 @@
-import { Routes, Route, useParams } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import NewsDetail from "./pages/NewsDetail";
 import NotFound from "./pages/NotFound";
@@ -21,8 +21,6 @@ const darkTheme = createTheme({
 });
 
 const App = () => {
-  const category = useParams();
-
   return (
     <div>
       <ThemeProvider theme={darkTheme}>
@@ -31,12 +29,12 @@ const App = () => {
         <Container>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/:category" element={<Home />} />
             <Route path="/bisnis" element={<Business />} />
             <Route path="/teknologi" element={<Technology />} />
             <Route path="/olahraga" element={<Sport />} />
             <Route path="/sains" element={<Sains />} />
             <Route path="/kesehatan" element={<Health />} />
-            <Route path="/:catergory" element={<NewsDetail />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Container>

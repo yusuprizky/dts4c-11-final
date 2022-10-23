@@ -14,7 +14,7 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import IconButton from "@mui/material/IconButton";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -56,26 +56,20 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 const Header = () => {
   const dispatch = useDispatch();
-  const [value, setValue] = useState("general");
+  const navigate = useNavigate();
+  const [value, setValue] = useState("");
 
   const handleChange = (e, value) => {
+    e.preventDefault();
     dispatch(getNews(value));
     dispatch(setCategory(e.target.textContent));
     setValue(value);
-    e.preventDefault();
+    if (e.target.textContent === "Indonesia") {
+      navigate("/");
+    } else {
+      navigate(`/${value}`);
+    }
   };
-
-  // const navigate = useNavigate();
-  // const handleRedirect = (e) => {
-  //   const name = e.target.name;
-  //   if (name) {
-  //     e.preventDefault();
-  //     navigate(`/${name}`);
-  //   } else {
-  //     navigate("/");
-  //   }
-  //   e.preventDefault();
-  // };
 
   return (
     <>
