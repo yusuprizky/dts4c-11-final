@@ -20,7 +20,7 @@ const NewsList = () => {
       </Typography>
       {entities.articles?.map((data, i) => {
         return (
-          <Card key={i} sx={{ marginBottom: 5 }}>
+          <Card key={i} sx={{ marginBottom: 5, boxShadow: "2px 2px 4px 4px rgba(0,0,0,0.4)" }}>
             <CardMedia component="img" height="200" image={data.urlToImage} sx={{ objectFit: "none" }} />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">

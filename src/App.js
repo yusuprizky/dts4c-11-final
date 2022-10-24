@@ -12,19 +12,28 @@ import Footer from "./components/Footer";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import Container from "@mui/material/Container";
+import { useState } from "react";
 
-const darkTheme = createTheme({
-  palette: {
-    mode: "dark",
-  },
-});
+// const darkTheme = createTheme({
+//   palette: {
+//     mode: "dark",
+//   },
+// });
 
 const App = () => {
+  const [toggleDark, settoggleDark] = useState(false);
+  console.log(toggleDark);
+  const myTheme = createTheme({
+    palette: {
+      mode: toggleDark ? "dark" : "light",
+    },
+  });
+
   return (
     <div>
-      <ThemeProvider theme={darkTheme}>
+      <ThemeProvider theme={myTheme}>
         <CssBaseline />
-        <Header />
+        <Header toggleDark={toggleDark} settoggleDark={settoggleDark} />
         <Container>
           <Routes>
             <Route path="/" element={<Home />} />

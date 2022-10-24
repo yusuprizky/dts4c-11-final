@@ -1,10 +1,11 @@
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
+import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getNews, setCategory } from "../features/newsSlice";
+import { useNavigate } from "react-router-dom";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
-import { useState } from "react";
 import { styled, alpha } from "@mui/material/styles";
 import SearchIcon from "@mui/icons-material/Search";
 import InputBase from "@mui/material/InputBase";
@@ -14,7 +15,8 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import IconButton from "@mui/material/IconButton";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
-import { useNavigate } from "react-router-dom";
+import LightModeIcon from "@mui/icons-material/LightMode";
+import { Switch } from "@mui/material";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -54,7 +56,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-const Header = () => {
+const Header = ({ toggleDark, settoggleDark }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [value, setValue] = useState("");
@@ -65,6 +67,10 @@ const Header = () => {
     dispatch(setCategory(e.target.textContent));
     setValue(value);
     value === "general" ? navigate("/") : navigate(`/${value}`);
+  };
+
+  const handleModeChange = () => {
+    settoggleDark(!toggleDark);
   };
 
   return (
@@ -95,10 +101,11 @@ const Header = () => {
               </Box>
             </Grid>
             <Grid item lg={2}>
-              <Box display="flex" justifyContent="flex-end">
-                <IconButton size="large" aria-label="display more actions" edge="end" color="inherit">
-                  <DarkModeIcon />
-                </IconButton>
+              <Box display="flex" justifyContent="flex-end" alignItems="center">
+                {/* <IconButton size="large" aria-label="display more actions" checked={toggleDark} onChange={handleModeChange} name="toggleDark" edge="end" color="inherit"> */}
+                {toggleDark ? <LightModeIcon /> : <DarkModeIcon />}
+                {/* </IconButton> */}
+                <Switch checked={toggleDark} onChange={handleModeChange} name="toggleDark" color="default" />
               </Box>
             </Grid>
           </Grid>

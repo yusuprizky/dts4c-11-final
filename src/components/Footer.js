@@ -5,21 +5,10 @@ import { Link } from "react-router-dom";
 export default function Footer() {
   return (
     <footer style={{ marginTop: "5rem" }}>
-      <AppBar
-        position="static"
-        elevation={0}
-        component="footer"
-        color="default"
-        enableColorOnDark
-      >
+      <AppBar position="static" elevation={0} component="footer" color="default" enableColorOnDark>
         <Toolbar style={{ justifyContent: "center" }}>
-          <Typography
-            variant="p"
-            noWrap
-            component="div"
-            sx={{ flexGrow: 1, alignSelf: "center" }}
-          >
-            <Link to="/" style={{ textDecoration: "none", color: "#fff" }}>
+          <Typography variant="p" noWrap component="div" sx={{ flexGrow: 1, alignSelf: "center" }}>
+            <Link to="/" style={{ fontFamily: "Roboto", textDecoration: "none" }}>
               REA4C Berita
             </Link>
           </Typography>
