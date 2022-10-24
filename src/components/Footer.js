@@ -2,15 +2,17 @@ import { AppBar, Paper, Toolbar, Typography, Grid } from "@mui/material/";
 import { Facebook, Instagram, Twitter } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 
-export default function Footer() {
+export default function Footer({ toggleDark }) {
   return (
     <footer style={{ marginTop: "5rem" }}>
       <AppBar position="static" elevation={0} component="footer" color="default" enableColorOnDark>
         <Toolbar style={{ justifyContent: "center" }}>
-          <Typography variant="p" noWrap component="div" sx={{ flexGrow: 1, alignSelf: "center" }}>
-            <Link to="/" style={{ fontFamily: "Roboto", textDecoration: "none" }}>
+          <Typography noWrap component="div" sx={{ flexGrow: 1, alignSelf: "center" }}>
+            {/* <Link to="/" style={{ textDecoration: "none" }}> */}
+            <Typography variant="h6" sx={{ fontFamily: "Roboto" }}>
               REA4C Berita
-            </Link>
+            </Typography>
+            {/* </Link> */}
           </Typography>
           <Typography
             variant="p"
