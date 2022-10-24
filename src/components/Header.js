@@ -16,7 +16,7 @@ import Grid from "@mui/material/Grid";
 import IconButton from "@mui/material/IconButton";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import LightModeIcon from "@mui/icons-material/LightMode";
-import { Switch } from "@mui/material";
+import { Container, Switch } from "@mui/material";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -59,7 +59,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 const Header = ({ toggleDark, settoggleDark }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState("general");
 
   const handleChange = (e, value) => {
     e.preventDefault();
@@ -79,12 +79,12 @@ const Header = ({ toggleDark, settoggleDark }) => {
         {/* <Toolbar component="nav"> */}
         <Stack spacing={1}>
           <Grid container spacing={0}>
-            <Grid item lg={2}>
+            <Grid item lg={2} sm={12}>
               <Typography variant="h5" noWrap component="div" sx={{ fontFamily: "Roboto", marginTop: "1rem", flexGrow: 1, alignSelf: "flex-end" }}>
                 REA4C Berita
               </Typography>
             </Grid>
-            <Grid item lg={8} align="center">
+            <Grid item lg={8} sm={12} align="center">
               <Box
                 sx={{
                   width: "70%",
@@ -103,20 +103,22 @@ const Header = ({ toggleDark, settoggleDark }) => {
             <Grid item lg={2}>
               <Box display="flex" justifyContent="flex-end" alignItems="center">
                 {/* <IconButton size="large" aria-label="display more actions" checked={toggleDark} onChange={handleModeChange} name="toggleDark" edge="end" color="inherit"> */}
-                {toggleDark ? <LightModeIcon /> : <DarkModeIcon />}
+                {toggleDark ? <DarkModeIcon /> : <LightModeIcon />}
                 {/* </IconButton> */}
                 <Switch checked={toggleDark} onChange={handleModeChange} name="toggleDark" color="default" />
               </Box>
             </Grid>
           </Grid>
-          <Tabs value={value} onChange={handleChange} centered>
-            <Tab disableRipple value="general" label="Indonesia" />
-            <Tab disableRipple value="business" label="Bisnis" />
-            <Tab disableRipple value="technology" label="Teknologi" />
-            <Tab disableRipple value="sports" label="Olahraga" />
-            <Tab disableRipple value="science" label="Sains" />
-            <Tab disableRipple value="health" label="Kesehatan" />
-          </Tabs>
+          <Container sx={{ display: "flex", justifyContent: "center" }}>
+            <Tabs value={value} onChange={handleChange} variant="scrollable" scrollButtons allowScrollButtonsMobile>
+              <Tab disableRipple value="general" label="Indonesia" />
+              <Tab disableRipple value="business" label="Bisnis" />
+              <Tab disableRipple value="technology" label="Teknologi" />
+              <Tab disableRipple value="sports" label="Olahraga" />
+              <Tab disableRipple value="science" label="Sains" />
+              <Tab disableRipple value="health" label="Kesehatan" />
+            </Tabs>
+          </Container>
         </Stack>
       </AppBar>
     </>

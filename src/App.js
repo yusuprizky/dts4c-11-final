@@ -22,7 +22,6 @@ import { useState } from "react";
 
 const App = () => {
   const [toggleDark, settoggleDark] = useState(false);
-  console.log(toggleDark);
   const myTheme = createTheme({
     palette: {
       mode: toggleDark ? "dark" : "light",
@@ -46,7 +45,7 @@ const App = () => {
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Container>
-        <Footer />
+        <Footer toggleDark={toggleDark} />
       </ThemeProvider>
     </div>
   );
