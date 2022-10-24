@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getNews, setCategory } from "../features/newsSlice";
+import { getNews, getSearchNews, setCategory } from "../features/newsSlice";
 import { useNavigate } from "react-router-dom";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
@@ -60,6 +60,7 @@ const Header = ({ toggleDark, settoggleDark }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [value, setValue] = useState("general");
+  const [query, setQuery] = useState("");
 
   const handleChange = (e, value) => {
     e.preventDefault();
@@ -69,18 +70,46 @@ const Header = ({ toggleDark, settoggleDark }) => {
     value === "general" ? navigate("/") : navigate(`/${value}`);
   };
 
+  const handleSearch = (e) => {
+    if (e.key === "Enter") {
+      dispatch(getSearchNews(query));
+      setValue(0);
+      dispatch(setCategory("Search"));
+    }
+  };
+
+  const handleChangeSearch = (e) => {
+    setQuery(e.target.value);
+  };
+
   const handleModeChange = () => {
     settoggleDark(!toggleDark);
   };
 
   return (
     <>
-      <AppBar elevation={0} position="sticky" color="default" sx={{ padding: "10px 30px 0px 30px" }} enableColorOnDark>
+      <AppBar
+        elevation={0}
+        position="sticky"
+        color="default"
+        sx={{ padding: "10px 30px 0px 30px" }}
+        enableColorOnDark
+      >
         {/* <Toolbar component="nav"> */}
         <Stack spacing={1}>
           <Grid container spacing={0}>
             <Grid item lg={2} sm={12}>
-              <Typography variant="h5" noWrap component="div" sx={{ fontFamily: "Roboto", marginTop: "1rem", flexGrow: 1, alignSelf: "flex-end" }}>
+              <Typography
+                variant="h5"
+                noWrap
+                component="div"
+                sx={{
+                  fontFamily: "Roboto",
+                  marginTop: "1rem",
+                  flexGrow: 1,
+                  alignSelf: "flex-end",
+                }}
+              >
                 REA4C Berita
               </Typography>
             </Grid>
@@ -96,7 +125,12 @@ const Header = ({ toggleDark, settoggleDark }) => {
                   <SearchIconWrapper>
                     <SearchIcon />
                   </SearchIconWrapper>
-                  <StyledInputBase placeholder="Telusuri topik, lokasi & sumber" inputProps={{ "aria-label": "search" }} />
+                  <StyledInputBase
+                    onChange={handleChangeSearch}
+                    onKeyDown={handleSearch}
+                    placeholder="Telusuri topik, lokasi & sumber"
+                    inputProps={{ "aria-label": "search" }}
+                  />
                 </Search>
               </Box>
             </Grid>
@@ -105,12 +139,23 @@ const Header = ({ toggleDark, settoggleDark }) => {
                 {/* <IconButton size="large" aria-label="display more actions" checked={toggleDark} onChange={handleModeChange} name="toggleDark" edge="end" color="inherit"> */}
                 {toggleDark ? <DarkModeIcon /> : <LightModeIcon />}
                 {/* </IconButton> */}
-                <Switch checked={toggleDark} onChange={handleModeChange} name="toggleDark" color="default" />
+                <Switch
+                  checked={toggleDark}
+                  onChange={handleModeChange}
+                  name="toggleDark"
+                  color="default"
+                />
               </Box>
             </Grid>
           </Grid>
           <Container sx={{ display: "flex", justifyContent: "center" }}>
-            <Tabs value={value} onChange={handleChange} variant="scrollable" scrollButtons allowScrollButtonsMobile>
+            <Tabs
+              value={value}
+              onChange={handleChange}
+              variant="scrollable"
+              scrollButtons
+              allowScrollButtonsMobile
+            >
               <Tab disableRipple value="general" label="Indonesia" />
               <Tab disableRipple value="business" label="Bisnis" />
               <Tab disableRipple value="technology" label="Teknologi" />
