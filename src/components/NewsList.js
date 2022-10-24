@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getNews } from "../features/newsSlice";
-import Spinner from "react-spinner-material";
 
 import {
   Button,
@@ -10,6 +9,8 @@ import {
   CardContent,
   CardMedia,
   Typography,
+  CircularProgress,
+  Stack,
 } from "@mui/material";
 
 const NewsList = () => {
@@ -22,7 +23,11 @@ const NewsList = () => {
   }, [dispatch]);
 
   if (loading) {
-    return <Spinner radius={120} color={"#333"} stroke={2} visible={true} />;
+    return (
+      <Stack alignItems="center">
+        <CircularProgress color="primary" />
+      </Stack>
+    );
   } else {
     return (
       <>

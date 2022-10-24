@@ -67,6 +67,7 @@ const Header = ({ toggleDark, settoggleDark }) => {
     dispatch(getNews(value));
     dispatch(setCategory(e.target.textContent));
     setValue(value);
+    setQuery("");
     value === "general" ? navigate("/") : navigate(`/${value}`);
   };
 
@@ -74,7 +75,7 @@ const Header = ({ toggleDark, settoggleDark }) => {
     if (e.key === "Enter") {
       dispatch(getSearchNews(query));
       setValue(0);
-      dispatch(setCategory("Search"));
+      dispatch(setCategory(`Search : ` + query));
     }
   };
 
@@ -126,6 +127,7 @@ const Header = ({ toggleDark, settoggleDark }) => {
                     <SearchIcon />
                   </SearchIconWrapper>
                   <StyledInputBase
+                    value={query}
                     onChange={handleChangeSearch}
                     onKeyDown={handleSearch}
                     placeholder="Telusuri topik, lokasi & sumber"
