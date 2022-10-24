@@ -8,16 +8,12 @@ const initialState = {
 };
 
 export const getNews = createAsyncThunk("news/getNews", async (category) => {
-  const response = await axios.get(
-    `https://newsapi.org/v2/top-headlines?country=id&category=${category}&apiKey=${process.env.REACT_APP_APIKEY}`
-  );
+  const response = await axios.get(`https://newsapi.org/v2/top-headlines?country=id&category=${category}&apiKey=${process.env.REACT_APP_APIKEY}`);
   return response.data;
 });
 
 export const getSearchNews = createAsyncThunk("news/getNews", async (query) => {
-  const response = await axios.get(
-    `https://newsapi.org/v2/everything?q=${query}&language=id&pageSize=10&apiKey=${process.env.REACT_APP_APIKEY}`
-  );
+  const response = await axios.get(`https://newsapi.org/v2/everything?q=${query}&language=id&pageSize=10&apiKey=${process.env.REACT_APP_APIKEY}`);
   return response.data;
 });
 

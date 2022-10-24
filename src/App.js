@@ -35,8 +35,9 @@ const App = () => {
         <Header toggleDark={toggleDark} settoggleDark={settoggleDark} />
         <Container>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route exact path="/" element={<Home />} />
             <Route path="/:category" element={<Home />} />
+            <Route path="/search?q=:query" element={<Home />} />
             <Route path="/bisnis" element={<Business />} />
             <Route path="/teknologi" element={<Technology />} />
             <Route path="/olahraga" element={<Sport />} />

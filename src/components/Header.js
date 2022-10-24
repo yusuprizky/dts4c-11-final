@@ -81,6 +81,8 @@ const Header = ({ toggleDark, settoggleDark }) => {
 
   const handleChangeSearch = (e) => {
     setQuery(e.target.value);
+
+    navigate(`/search?q=${e.target.value}`);
   };
 
   const handleModeChange = () => {
@@ -89,13 +91,7 @@ const Header = ({ toggleDark, settoggleDark }) => {
 
   return (
     <>
-      <AppBar
-        elevation={0}
-        position="sticky"
-        color="default"
-        sx={{ padding: "10px 30px 0px 30px" }}
-        enableColorOnDark
-      >
+      <AppBar elevation={0} position="sticky" color="default" sx={{ padding: "10px 30px 0px 30px" }} enableColorOnDark>
         {/* <Toolbar component="nav"> */}
         <Stack spacing={1}>
           <Grid container spacing={0}>
@@ -126,13 +122,7 @@ const Header = ({ toggleDark, settoggleDark }) => {
                   <SearchIconWrapper>
                     <SearchIcon />
                   </SearchIconWrapper>
-                  <StyledInputBase
-                    value={query}
-                    onChange={handleChangeSearch}
-                    onKeyDown={handleSearch}
-                    placeholder="Telusuri topik, lokasi & sumber"
-                    inputProps={{ "aria-label": "search" }}
-                  />
+                  <StyledInputBase value={query} onChange={handleChangeSearch} onKeyDown={handleSearch} placeholder="Telusuri topik, lokasi & sumber" inputProps={{ "aria-label": "search" }} />
                 </Search>
               </Box>
             </Grid>
@@ -141,23 +131,12 @@ const Header = ({ toggleDark, settoggleDark }) => {
                 {/* <IconButton size="large" aria-label="display more actions" checked={toggleDark} onChange={handleModeChange} name="toggleDark" edge="end" color="inherit"> */}
                 {toggleDark ? <DarkModeIcon /> : <LightModeIcon />}
                 {/* </IconButton> */}
-                <Switch
-                  checked={toggleDark}
-                  onChange={handleModeChange}
-                  name="toggleDark"
-                  color="default"
-                />
+                <Switch checked={toggleDark} onChange={handleModeChange} name="toggleDark" color="default" />
               </Box>
             </Grid>
           </Grid>
           <Container sx={{ display: "flex", justifyContent: "center" }}>
-            <Tabs
-              value={value}
-              onChange={handleChange}
-              variant="scrollable"
-              scrollButtons
-              allowScrollButtonsMobile
-            >
+            <Tabs value={value} onChange={handleChange} variant="scrollable" scrollButtons allowScrollButtonsMobile>
               <Tab disableRipple value="general" label="Indonesia" />
               <Tab disableRipple value="business" label="Bisnis" />
               <Tab disableRipple value="technology" label="Teknologi" />
