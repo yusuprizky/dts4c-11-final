@@ -2,17 +2,20 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getNews } from "../features/newsSlice";
 
-import { Button, Card, CardActions, CardContent, CardMedia, Typography, CircularProgress, Stack } from "@mui/material";
+import {
+  Button,
+  Card,
+  CardActions,
+  CardContent,
+  CardMedia,
+  Typography,
+  CircularProgress,
+  Stack,
+} from "@mui/material";
 
 const NewsList = () => {
-  const dispatch = useDispatch();
-  const { entities, category, loading } = useSelector((state) => state.news);
+  const { entities, title, loading } = useSelector((state) => state.news);
   // console.log(entities);
-
-  useEffect(() => {
-    dispatch(getNews(""));
-  }, [dispatch]);
-
   if (loading) {
     return (
       <Stack alignItems="center" height="100vh">
@@ -22,8 +25,11 @@ const NewsList = () => {
   } else {
     return (
       <>
-        <Typography variant="h4" sx={{ fontFamily: "Roboto", marginBottom: "1rem" }}>
-          {category}
+        <Typography
+          variant="h4"
+          sx={{ fontFamily: "Roboto", marginBottom: "1rem" }}
+        >
+          {title}
         </Typography>
         {entities.articles?.map((data, i) => {
           return (
@@ -34,7 +40,12 @@ const NewsList = () => {
                 boxShadow: "2px 2px 4px 4px rgba(0,0,0,0.4)",
               }}
             >
-              <CardMedia component="img" height="200" image={data.urlToImage} sx={{ objectFit: "none", borderRadius: "5px" }} />
+              <CardMedia
+                component="img"
+                height="200"
+                image={data.urlToImage}
+                sx={{ objectFit: "none", borderRadius: "5px" }}
+              />
               <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
                   {data.title}
