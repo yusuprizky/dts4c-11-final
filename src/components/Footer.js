@@ -4,7 +4,7 @@ import { Facebook, Instagram, Twitter } from "@mui/icons-material";
 export default function Footer({ toggleDark }) {
   return (
     <footer style={{ marginTop: "5rem", padding: "0 5px" }}>
-      <AppBar position="stiky" elevation={0} component="footer" color="default" enableColorOnDark>
+      <AppBar position="static" elevation={0} component="footer" color="default" enableColorOnDark>
         <Toolbar style={{ justifyContent: "center" }}>
           <Typography noWrap component="div" sx={{ flexGrow: 1, alignSelf: "center" }}>
             <Typography variant="h6" sx={{ fontFamily: "Roboto" }}>
