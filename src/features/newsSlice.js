@@ -3,32 +3,36 @@ import axios from "axios";
 
 const initialState = {
   entities: [],
-  loading: false,
+  loading: "loading",
   title: "Indonesia",
   category: "general",
   query: "",
   totalData: 0,
   pageSize: 10,
   currentPage: 1,
-  isSearch: true,
+  messageError: "",
 };
 
 export const getNews = createAsyncThunk(
   "news/getNews",
-  async (args, { getState }) => {
-    const state = getState();
-    let response;
-    console.log(state.news.query);
-    if (state.news.query !== "") {
-      response = await axios.get(
-        `https://newsapi.org/v2/everything?q=${state.news.query}&language=id&pageSize=${state.news.pageSize}&page=${state.news.currentPage}&apiKey=${process.env.REACT_APP_APIKEY}`
-      );
-    } else {
-      response = await axios.get(
-        `https://newsapi.org/v2/top-headlines?country=id&category=${state.news.category}&pageSize=${state.news.pageSize}&page=${state.news.currentPage}&apiKey=${process.env.REACT_APP_APIKEY}`
-      );
+  async (args, { getState, rejectWithValue }) => {
+    try {
+      const state = getState();
+      console.log(state);
+      let response;
+      if (state.news.query !== "") {
+        response = await axios.get(
+          `https://newsapi.org/v2/everything?q=${state.news.query}&language=id&pageSize=${state.news.pageSize}&page=${state.news.currentPage}&apiKey=${process.env.REACT_APP_APIKEY}`
+        );
+      } else {
+        response = await axios.get(
+          `https://newsapi.org/v2/top-headlines?country=id&category=${state.news.category}&pageSize=${state.news.pageSize}&page=${state.news.currentPage}&apiKey=${process.env.REACT_APP_APIKEY}`
+        );
+      }
+      return response.data;
+    } catch (err) {
+      return rejectWithValue(err.message);
     }
-    return response.data;
   }
 );
 
@@ -62,17 +66,16 @@ const newsSlice = createSlice({
   },
   extraReducers: {
     [getNews.fulfilled]: (state, { payload }) => {
-      console.log(payload);
-      state.loading = false;
+      state.loading = "succeeded";
       state.entities = payload;
       state.totalData = payload.totalResults;
-      state.isSearch = false;
     },
     [getNews.pending]: (state) => {
-      state.loading = true;
+      state.loading = "loading";
     },
-    [getNews.rejected]: (state) => {
-      state.loading = false;
+    [getNews.rejected]: (state, { payload }) => {
+      state.loading = "failed";
+      state.messageError = payload;
     },
     // [getSearchNews.fulfilled]: (state, { payload }) => {
     //   state.loading = false;

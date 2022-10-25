@@ -2,13 +2,11 @@ import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   getNews,
-  getSearchNews,
   setCategory,
   setTitle,
   setQuery,
 } from "../features/newsSlice";
-import { useNavigate, useParams } from "react-router-dom";
-import Toolbar from "@mui/material/Toolbar";
+import { useNavigate } from "react-router-dom";
 import Typography from "@mui/material/Typography";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
@@ -19,7 +17,6 @@ import Stack from "@mui/material/Stack";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
-import IconButton from "@mui/material/IconButton";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import { Container, Switch } from "@mui/material";
@@ -100,7 +97,7 @@ const Header = ({ toggleDark, settoggleDark }) => {
 
   const handleSearch = (e) => {
     if (e.key === "Enter") {
-      dispatch(getNews());
+      // dispatch(getNews());
       setValue("0");
       setJudul(`Search : ` + e.target.value);
     }
