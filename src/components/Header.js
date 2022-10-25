@@ -176,7 +176,7 @@ const Header = ({ toggleDark, settoggleDark }) => {
               </Box>
             </Grid>
           </Grid>
-          <Container sx={{ display: "flex", justifyContent: "center" }}>
+          <Box display="flex" justifyContent="center" width="100%">
             <Tabs
               value={value}
               onChange={handleChange}
@@ -191,7 +191,7 @@ const Header = ({ toggleDark, settoggleDark }) => {
               <Tab disableRipple value="science" label="Sains" />
               <Tab disableRipple value="health" label="Kesehatan" />
             </Tabs>
-          </Container>
+          </Box>
         </Stack>
       </AppBar>
     </>
