@@ -125,7 +125,7 @@ const Header = ({ toggleDark, settoggleDark }) => {
         {/* <Toolbar component="nav"> */}
         <Stack spacing={1}>
           <Grid container spacing={0}>
-            <Grid item lg={2} sm={12}>
+            <Grid item lg={2} md={2} sm={12} xs={12}>
               <Typography
                 variant="h5"
                 noWrap
@@ -135,12 +135,13 @@ const Header = ({ toggleDark, settoggleDark }) => {
                   marginTop: "1rem",
                   flexGrow: 1,
                   alignSelf: "flex-end",
+                  display: { xs: "none", sm: "none", md: "block", lg: "block" },
                 }}
               >
                 REA4C Berita
               </Typography>
             </Grid>
-            <Grid item lg={8} sm={12} align="center">
+            <Grid item lg={8} md={8} sm={10} xs={10} align="center">
               <Box
                 sx={{
                   width: "70%",
@@ -162,7 +163,7 @@ const Header = ({ toggleDark, settoggleDark }) => {
                 </Search>
               </Box>
             </Grid>
-            <Grid item lg={2}>
+            <Grid item lg={2} md={2} sm={2} xs={2}>
               <Box display="flex" justifyContent="flex-end" alignItems="center">
                 {/* <IconButton size="large" aria-label="display more actions" checked={toggleDark} onChange={handleModeChange} name="toggleDark" edge="end" color="inherit"> */}
                 {toggleDark ? <DarkModeIcon /> : <LightModeIcon />}
