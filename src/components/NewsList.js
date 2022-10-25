@@ -15,7 +15,7 @@ const NewsList = () => {
 
   if (loading) {
     return (
-      <Stack alignItems="center">
+      <Stack alignItems="center" height="100vh">
         <CircularProgress color="primary" />
       </Stack>
     );
