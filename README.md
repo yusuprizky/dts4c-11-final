@@ -1,19 +1,30 @@
-# DTS REA4 Final Project
+REA4C Berita
 
-Ketentuan lengkap bisa dilihat di [Final Project Guidelines](https://docs.google.com/document/d/122KyWNQ4xxU4aFwWbM4vIfH7LM4AH2CZEZa3YsEHjCk). 
+![rea4cberita](https://user-images.githubusercontent.com/107408401/198078960-2b01107c-0684-4e53-92ca-ab2072c53c71.gif)
 
-## Daftar pair
 
-Tugas dikerjakan secara berpasangan, untuk daftar kelompok bisa dilihat pada masing-masing Classroom atau Discord Class.
 
-## Fork and Clone
 
-Mohon perwakilan dari pair bisa melakukan fork repo ini dan clone, untuk repositori yang di fork menggunakan penamaan:
+Live link APP : https://rea4c-berita.web.app/ (API menggunakan newsapi yg hanya mendukung local saja)
 
-`dts4[a/b/c]-[nomor pair]-final`
+Design terinspirasi dari https://news.google.com/
 
-Contoh: `dts4a-01-final`
+REA4C Berita adalah website portal berita yang ada di Indonesia, disini kita bisa melihat berita-berita sesuai kategori berikut :
+Indonesia : kategori umum untuk berita-berita di Indonesia
+Bisnis : menyajikan berita-berita yang berkaitan dengan bisnis di Indonesia
+Teknologi : menyajikan berita-berita yang berkaitan dengan teknologi di Indonesia
+Olahraga : menyajikan berita-berita yang berkaitan dengan olahraga di Indonesia
+Sains : menyajikan berita-berita yang berkaitan dengan sains di Indonesia
+Kesehatan : menyajikan berita-berita yang berkaitan dengan kesehatan di Indonesia
+Kita bisa memilih berita-berita pada kategori tersebut pada Navbar
 
-## Branching, commit
+Pada berita jika kita pilih Read More akan diarahkan langsung ke source asli berita tersebut.
 
-Branch dapat sesuai dengan kebutuhan dan kesepakatan bersama dalam pair, namun hasil akhirnya harus di merge ke branch `main` dan di push ke Github. Pastikan hasil akhir kode sudah ter-push!
+Kita juga bisa mencari berita sesuai keinginan kita dengan menginput tema atau judul berita yg kita cari pada kolom pencarian.
+
+
+* Fitur Unik yang dipakai : pencarian & dark mode
+
+
+
+
