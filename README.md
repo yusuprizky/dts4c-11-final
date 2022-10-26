@@ -21,7 +21,7 @@ Pada berita jika kita pilih Read More akan diarahkan langsung ke source asli ber
 Kita juga bisa mencari berita sesuai keinginan kita dengan menginput tema atau judul berita yg kita cari pada kolom pencarian.
 
 
-* Fitur Unik yang dipakai : pencarian & dark mode
+* Fitur Unik yang dipakai : pencarian, pagination & dark mode
 
 
 
