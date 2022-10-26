@@ -1,11 +1,6 @@
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  getNews,
-  setCategory,
-  setTitle,
-  setQuery,
-} from "../features/newsSlice";
+import { getNews, setCategory, setTitle, setQuery } from "../features/newsSlice";
 import { useNavigate } from "react-router-dom";
 import Typography from "@mui/material/Typography";
 import Tabs from "@mui/material/Tabs";
@@ -19,7 +14,7 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import LightModeIcon from "@mui/icons-material/LightMode";
-import { Container, Switch } from "@mui/material";
+import { Switch } from "@mui/material";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -92,7 +87,7 @@ const Header = ({ toggleDark, settoggleDark }) => {
     setValue(value);
     setJudul(e.target.textContent);
     setQ("");
-    // value === "general" ? navigate("/") : navigate(`/${value}`);
+    value === "general" ? navigate("/") : navigate(`/${value}`);
   };
 
   const handleSearch = (e) => {
@@ -115,13 +110,7 @@ const Header = ({ toggleDark, settoggleDark }) => {
 
   return (
     <>
-      <AppBar
-        elevation={0}
-        position="sticky"
-        color="default"
-        sx={{ padding: "10px 30px 0px 30px" }}
-        enableColorOnDark
-      >
+      <AppBar elevation={0} position="sticky" color="default" sx={{ padding: "10px 30px 0px 30px" }} enableColorOnDark>
         {/* <Toolbar component="nav"> */}
         <Stack spacing={1}>
           <Grid container spacing={0}>
@@ -153,38 +142,19 @@ const Header = ({ toggleDark, settoggleDark }) => {
                   <SearchIconWrapper>
                     <SearchIcon />
                   </SearchIconWrapper>
-                  <StyledInputBase
-                    value={q}
-                    onChange={handleChangeSearch}
-                    onKeyDown={handleSearch}
-                    placeholder="Telusuri topik, lokasi & sumber"
-                    inputProps={{ "aria-label": "search" }}
-                  />
+                  <StyledInputBase value={q} onChange={handleChangeSearch} onKeyDown={handleSearch} placeholder="Telusuri topik, lokasi & sumber" inputProps={{ "aria-label": "search" }} />
                 </Search>
               </Box>
             </Grid>
             <Grid item lg={2} md={2} sm={2} xs={2}>
               <Box display="flex" justifyContent="flex-end" alignItems="center">
-                {/* <IconButton size="large" aria-label="display more actions" checked={toggleDark} onChange={handleModeChange} name="toggleDark" edge="end" color="inherit"> */}
                 {toggleDark ? <DarkModeIcon /> : <LightModeIcon />}
-                {/* </IconButton> */}
-                <Switch
-                  checked={toggleDark}
-                  onChange={handleModeChange}
-                  name="toggleDark"
-                  color="default"
-                />
+                <Switch checked={toggleDark} onChange={handleModeChange} name="toggleDark" color="default" />
               </Box>
             </Grid>
           </Grid>
           <Box display="flex" justifyContent="center" width="100%">
-            <Tabs
-              value={value}
-              onChange={handleChange}
-              variant="scrollable"
-              scrollButtons
-              allowScrollButtonsMobile
-            >
+            <Tabs value={value} onChange={handleChange} variant="scrollable" scrollButtons allowScrollButtonsMobile>
               <Tab disableRipple value="general" label="Indonesia" />
               <Tab disableRipple value="business" label="Bisnis" />
               <Tab disableRipple value="technology" label="Teknologi" />
