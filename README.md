@@ -1,8 +1,6 @@
 REA4C Berita
 
-![rea4cberita](https://user-images.githubusercontent.com/107408401/198078960-2b01107c-0684-4e53-92ca-ab2072c53c71.gif)
-
-
+![rea4cberita](https://user-images.githubusercontent.com/107408401/198081962-5c35e67c-50a2-427d-8b1e-8753142072ab.gif)
 
 
 Live link APP : https://rea4c-berita.web.app/ (API menggunakan newsapi yg hanya mendukung local saja)
